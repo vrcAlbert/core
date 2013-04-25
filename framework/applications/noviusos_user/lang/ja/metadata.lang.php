@@ -1,13 +1,13 @@
 <?php
 
-// Generated on 17/04/2013 14:49:11
+// Generated on 24/04/2013 17:47:52
 
 // 2 out of 2 messages are translated (100%).
 // 3 out of 3 words are translated (100%).
 
 return array(
-    'Users' => 'Utilisateurs',
+    'Users' => 'ユーザー',
 
-    'My account' => 'Mon compte',
+    'My account' => '私のアカウント',
 
 );

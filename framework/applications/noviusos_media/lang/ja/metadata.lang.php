@@ -1,11 +1,11 @@
 <?php
 
-// Generated on 17/04/2013 14:49:11
+// Generated on 24/04/2013 17:47:52
 
 // 1 out of 1 messages are translated (100%).
 // 2 out of 2 words are translated (100%).
 
 return array(
-    'Media Centre' => 'Médiathèque',
+    'Media Centre' => 'メディアセンター',
 
 );
