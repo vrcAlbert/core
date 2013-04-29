@@ -18,6 +18,20 @@
         function($) {
             $(function() {
                 var $input = $('input#<?= $id ?>'), options = $input.data('datepicker-options');
+                var $altField = $(options.altField);
+                //console.log(options);
+
+                /*
+                var options = $.extend(options, {
+                    onClose: function(dateText, inst) {
+
+
+                        //console.log($input.val());
+                        //$input.datetimepicker('setDate', $input.val());
+                        //console.log(dateText, inst);
+                    }
+                });
+                */
 
                 $.datepicker.setDefaults($.datepicker.regional[$.nosLang.substr(0, 2)]);
                 var inputDate = $input.val();
@@ -38,17 +52,28 @@
                 });
 
                 // Open the date popup when focusing the altField
-                var $altField = $(options.altField).on('focus', function() {
+                $altField.on('focus', function() {
                     $input.datetimepicker('show');
                 });
 
+
+
                 // Track keyboard change on altField to update the selected date
                 $altField.on('keyup', function(e) {
+                    // $.datetimepicker.parseDate(options.altFormat, $(this).val());
                     try {
-                        var date = $.datetimepicker.parseDate( options.altFormat, $(this).val());
-                        if (date) {
-                            $input.datetimepicker('setDate', date);
-                        }
+                        $input.datetimepicker('option', 'altField', '');
+                        var date = $.datepicker.parseDateTime(options.altFormat, options.altTimeFormat, $altField.val());
+                        $input.datetimepicker('setDate', date);
+                        //$input.datetimepicker('option', 'altField', options.altField);
+                        //$input.datetimepicker('setDate', $input.val());
+                        //var date = $input.datetimepicker('setDate', $(this).val());
+                        // var date = $.datetimepicker.parseDate(options.altFormat, $(this).val());
+                        //console.log('date', date);
+
+                        // if ($(this).val()) {
+                            //$input.datetimepicker('setDate', $input.val());
+                        // }
                     } catch (err) {
                         e.stopPropagation();
                         return;
