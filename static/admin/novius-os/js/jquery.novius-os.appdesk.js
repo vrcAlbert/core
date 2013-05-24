@@ -212,7 +212,7 @@ define('jquery-nos-appdesk',
                             }
                         }
                     }
-                    $('<style type="text/css" id="inspectorsGrid">' + css + '</style>').appendTo('head');
+                    //$('<style type="text/css" id="inspectorsGrid">' + css + '</style>').appendTo('head');
                 }
 
                 return self;
@@ -696,7 +696,10 @@ define('jquery-nos-appdesk',
                     .find('.ui-resizable-handle')
                     .mousedown(function() {
                         self.resizing = false;
-                    });
+                    })
+                    .end()
+                    .find('.wijmo-wijsplitter-v-panel1')
+                    .addClass('nos-theme-secondary');
 
                 self.uiSplitterHorizontal.wijsplitter(horizontalSplitter)
                     .find('.ui-resizable-handle')

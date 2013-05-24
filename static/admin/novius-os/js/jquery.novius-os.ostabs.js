@@ -127,16 +127,18 @@ define('jquery-nos-ostabs',
                 if ( init ) {
                     self.element.addClass('nos-ostabs ui-widget ui-widget-content' + (Modernizr.touch ? ' nos-ostabs-touch' : ''));
 
-                    self.uiOstabsHeader = $( '<div></div>' )
-                        .addClass( 'nos-ostabs-header' )
-                        .appendTo( self.element );
+                    self.uiOstabsHeader = $( '<div><div></div></div>' )
+                        .addClass( 'nos-ostabs-header nos-theme-top' )
+                        .appendTo( self.element )
+                        .find('div')
+                        .addClass( 'nos-ostabs-header-wrapper ui-widget-content' );
 
                     self.uiOstabsSuperPanel = $( '<div></div>' )
                         .addClass('nos-ostabs-tabs')
                         .appendTo( self.uiOstabsHeader );
 
                     self.uiOstabsTray = $( '<div></div>' )
-                        .addClass( 'nos-ostabs-tray nos-ostabs-nav' );
+                        .addClass( 'nos-ostabs-tray nos-ostabs-nav ui-state-active' );
                     if ( o.trayView !== null ) {
                         self.uiOstabsTray.html(o.trayView);
                     }
@@ -617,9 +619,11 @@ define('jquery-nos-ostabs',
 
                 $panel.find('.nos-ostabs-actions').remove();
 
-                $action_bar = $( '<div></div>' )
-                    .addClass( 'nos-ostabs-actions ui-state-active' )
-                    .prependTo( $panel );
+                $action_bar = $( '<div><div></div></div>' )
+                    .addClass( 'nos-ostabs-actions nos-theme-top' )
+                    .prependTo( $panel )
+                    .find('div')
+                    .addClass( 'nos-ostabs-actions-wrapper ui-widget-header' );
 
                 if (!Modernizr.touch && !closable) {
                     return;

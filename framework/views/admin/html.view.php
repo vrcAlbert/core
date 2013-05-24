@@ -419,7 +419,10 @@ if (hash.substr(0, 4) == 'tab=') {
 </script>
 
 <link rel="shortcut icon" href="static/novius-os/admin/novius-os/img/noviusos.ico">
-<link rel="stylesheet" href="static/novius-os/admin/vendor/wijmo/css/aristo/jquery-wijmo.min.css">
+<link rel="stylesheet" href="static/novius-os/admin/novius-os/themes/default/jquery-ui-novius-os.css">
+<link rel="stylesheet" href="static/novius-os/admin/novius-os/themes/button/jquery-ui-novius-os.css">
+<link rel="stylesheet" href="static/novius-os/admin/novius-os/themes/secondary/jquery-ui-novius-os.css">
+<link rel="stylesheet" href="static/novius-os/admin/novius-os/themes/top/jquery-ui-novius-os.css">
 <link rel="stylesheet" href="static/novius-os/admin/vendor/wijmo/css/jquery.wijmo-pro.all.3.20131.4.min.css">
 <?php
 if ($assets_minified) {
@@ -461,7 +464,7 @@ if ($assets_minified) {
 <?= $js ?>
 </head>
 
-<body>
+<body class="nos-theme-default">
     <?= !empty($body) ? $body : '' ?>
 </body>
 </html>

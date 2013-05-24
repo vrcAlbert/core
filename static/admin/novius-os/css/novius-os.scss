@@ -28,8 +28,8 @@ strong {
 
 body, select, input, textarea {
 	color       : #444; /* 444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
-	font-family : franklin gothic medium, arial, verdana, helvetica, sans-serif; /* Set your base font here, to apply evenly */
-	font-size: 13px;
+	font-family : Lucida, franklin gothic medium, arial, verdana, helvetica, sans-serif; /* Set your base font here, to apply evenly */
+	font-size: 12px;
 }
 
 /* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
@@ -48,27 +48,6 @@ ul {
     list-style: disc none inside ;
 }
 
-.nos-dark-theme {
-    background: #222222;
-    color: #fff;
-
-    a {
-        color: #fff;
-    }
-
-    &.ui-widget-content, .ui-widget-content {
-        background: rgba(0, 0, 0, 0.9);
-        color: #fff;
-
-        .ui-widget-content {
-            background: transparent;
-        }
-    }
-
-    .ui-widget-content a {
-        color: #fff;
-    }
-}
 .nos-inline-icon16 {display: inline-block; text-indent: -99999px; overflow: hidden; background-repeat: no-repeat; width: 16px; height: 16px; line-height: 16px; vertical-align: middle; }
 
 .nos-icon16 {display: inline-block; text-indent: -99999px; overflow: hidden; background-repeat: no-repeat; width: 16px; height: 16px; line-height: 16px; vertical-align: middle; border-radius: 0; background-position: center; }
@@ -132,16 +111,6 @@ ul {
 		vertical-align: middle;
 	}
 }
-.wijmo-checkbox {
-    cursor: pointer;
-	display: inline-block;
-	width: inherit;
-	vertical-align: middle;
-
-	label {
-		width: inherit;
-	}
-}
 .ui-helper-clearfix {
 	&:after {
 		content: '';
@@ -166,8 +135,15 @@ ul {
     top: 0;
     left: 0;
     right: 0;
-    border-top: 0;
-    width: 100%;
+
+    > table {
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-top: 0;
+      width: 100%;
+    }
 
     table {
         display: inline-table;
@@ -624,17 +600,6 @@ table.title-fields {
             width: $checkbox_hit_area_size;
             height: $checkbox_hit_area_size;
             cursor: pointer;
-
-            .wijmo-checkbox {
-                line-height: $checkbox_hit_area_size;
-                text-align: center;
-                margin: 0;
-            }
-            .wijmo-checkbox-box {
-                position: absolute;
-                top: -10px;
-                left: ($checkbox_hit_area_size - 16px) / 2; /* 16 = wijmo-checkbox width */
-            }
         }
 
         img.app_icon {

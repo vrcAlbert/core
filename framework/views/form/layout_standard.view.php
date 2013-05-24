@@ -46,12 +46,14 @@ echo $fieldset->build_hidden_fields();
 
 $fieldset->form()->set_config('field_template', "\t\t<tr><th class=\"{error_class}\">{label}{required}</th><td class=\"{error_class}\">{field} {error_msg}</td></tr>\n");
 $large = !empty($large) && $large == true;
+
+$menus = empty($menu) ? array() : (array) $menu;
 ?>
 
 <div id="<?= $uniqid ?>" class="nos-fixed-content fill-parent" style="display:none;">
-    <div>
+    <div class="line">
         <?= $large ? '' : '<div class="col c1"></div>'; ?>
-        <div class="col <?= $large ? 'c12' : 'c10' ?>">
+        <div class="col c<?= ($large ? 8 : 7) + (empty($menus) ? ($large ? 4 : 3) : 0) ?>">
             <div class="line ui-widget" style="margin:2em 0 1em;">
                 <table class="title-fields" style="margin-bottom:1em;">
                     <tr>
@@ -160,19 +162,9 @@ if (!empty($subtitle) || !empty($publishable)) {
 }
 ?>
             </div>
-        </div>
-        <?= $large ? '' : '<div class="col c1"></div>' ?>
-    </div>
-
-    <div style="clear:both;">
-        <div class="line ui-widget" style="margin: 0 0 2em;">
+            <div class="line ui-widget" style="margin: 0 0 2em;">
 <?php
-            $menus = empty($menu) ? array() : (array) $menu;
-            $contents = empty($content) ? array() : (array) $content;
-?>
-            <?= $large ? '' : '<div class="col c1"></div>' ?>
-            <div class="col c<?= ($large ? 8 : 7) + (empty($menu) ? ($large ? 4 : 3) : 0) ?>" id="line_second" style="position:relative;">
-<?php
+$contents = empty($content) ? array() : (array) $content;
 foreach ($contents as $content) {
     if (is_array($content) && !empty($content['view'])) {
         echo View::forge($content['view'], $view_params + (isset($content['params']) ? $content['params'] : array()) + array('view_params' => $view_params), false);
@@ -184,10 +176,11 @@ foreach ($contents as $content) {
 }
 ?>
             </div>
+        </div>
 <?php
 if (!empty($menus)) {
     ?>
-                <div class="col <?= $large ? 'c4' : 'c3' ?>" style="position:relative;">
+        <div class="col <?= $large ? 'c4' : 'c3' ?> nos-theme-secondary" style="padding-right: 0;">
     <?php
     $menu = current($menus);
     if (empty($menu['view'])) {
@@ -214,11 +207,10 @@ if (!empty($menus)) {
         }
     }
     ?>
-                 </div>
+        </div>
     <?php
 }
 ?>
-            <?= $large ? '' : '<div class="col c1"></div>' ?>
-        </div>
+        <?= $large ? '' : '<div class="col c1"></div>' ?>
     </div>
 </div>
