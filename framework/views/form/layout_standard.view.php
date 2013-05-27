@@ -82,7 +82,7 @@ if (!empty($item) && count($contexts) > 1) {
             }
             ?>
                 </ul>
-            </div>
+            </td>
             <?php
         } else {
             echo '<td style="width:16px;text-align:center;">'.\Nos\Tools_Context::contextLabel($item->get_context(), array('template' => '{site}<br />{locale}', 'short' => true)).'</td>';
@@ -107,8 +107,8 @@ if (!empty($title)) {
         echo ' '.$field
                 ->set_attribute('placeholder', $placeholder)
                 ->set_attribute('title', $placeholder)
-                ->set_attribute('class', $field->get_attribute('class').' title')
-                ->set_template($field->type == 'file' ? '<span class="title">{label} {field}</span>': '{field}')
+                ->set_attribute('class', $field->get_attribute('class').' ui-priority-primary')
+                ->set_template($field->type == 'file' ? '<span class="ui-priority-primary">{label} {field}</span>': '{field}')
                 ->build();
     }
 }
@@ -161,8 +161,6 @@ if (!empty($subtitle) || !empty($publishable)) {
 ?>
             </div>
         </div>
-        <div class="col c1"></div>
-        <div class="col c3"></div>
         <?= $large ? '' : '<div class="col c1"></div>' ?>
     </div>
 
